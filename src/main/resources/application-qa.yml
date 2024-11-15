@@ -1,0 +1,43 @@
+application:
+  name: order-tracker-QA
+
+taxes:
+  provincial: 8
+  federal: 5
+
+application-config:
+  days: wenesday, thursday, friday
+  skuList:
+    -
+      sku: 1001
+      description: "Gift Card"
+    -
+      sku: 1002
+      description: "coupon"
+    -
+      sku: 1003
+      description: "warranty"
+
+canada-taxes:
+  taxMap:
+    Ontarion:
+      provincial: 8
+      federal: 5
+    BC:
+      provincial: 6
+      federal: 5
+    Quebec:
+      provincial: 9
+      federal: 5
+
+
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/j2ee_assignment06
+    username: root
+    password: 7400
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
