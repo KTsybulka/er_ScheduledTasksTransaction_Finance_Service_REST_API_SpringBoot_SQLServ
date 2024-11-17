@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 //OpenAPI provides a clear way to describe the API, making it easier to use,
@@ -16,6 +17,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 				description = "API for managing financial details related to transactions."
 		)
 )
+@EnableScheduling
 public class N01561393Assignment06TransactionFinanceServiceApplication {
 
 	public static void main(String[] args) {

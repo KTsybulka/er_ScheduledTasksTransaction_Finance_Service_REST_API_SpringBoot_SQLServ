@@ -4,7 +4,10 @@ import com.example.n01561393_Assignment06_Transaction_Finance_Service.config.App
 import com.example.n01561393_Assignment06_Transaction_Finance_Service.config.CanadaTax;
 import com.example.n01561393_Assignment06_Transaction_Finance_Service.config.CanadaTaxConfig;
 import com.example.n01561393_Assignment06_Transaction_Finance_Service.config.SkuDescription;
+import com.example.n01561393_Assignment06_Transaction_Finance_Service.entity.Transaction;
+import com.example.n01561393_Assignment06_Transaction_Finance_Service.service.TransactionService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
@@ -14,10 +17,12 @@ public class TransactionController {
 
     private final ApplicationConfig applicationConfig;
     private final CanadaTaxConfig canadaTaxConfig;
+    private final TransactionService transactionService;
 
-    public TransactionController(ApplicationConfig applicationConfig, CanadaTaxConfig canadaTaxConfig) {
+    public TransactionController(ApplicationConfig applicationConfig, CanadaTaxConfig canadaTaxConfig, TransactionService transactionService) {
         this.applicationConfig = applicationConfig;
         this.canadaTaxConfig = canadaTaxConfig;
+        this.transactionService = transactionService;
     }
 
     @GetMapping
@@ -51,4 +56,11 @@ public class TransactionController {
 
         return "Data fetched!!";
     }
+
+    @GetMapping("/trigger/{sku}")
+    public Transaction addDataTrigger(@PathVariable String sku){
+        return transactionService.addRecord(sku);
+    }
+
+
 }
